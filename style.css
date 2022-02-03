@@ -30,13 +30,14 @@ main, .notes {
 }
 .notes {
     gap: 15px;
+    align-items: center;
 }
 button {
     display: flex;
     align-items: center;
     justify-self: center;
-    width: 20px;
-    height: 20px;
+    min-width: 20px;
+    min-height: 20px;
     border: 2px solid transparent;
     border-radius: 50%;
     background-color: transparent;
@@ -63,7 +64,7 @@ button {
     align-items: center;
     justify-content: flex-start;
     gap: 10px;
-    width: 450px;
+    width: 350px;
 }
 .container p {
     margin-bottom: 2px;

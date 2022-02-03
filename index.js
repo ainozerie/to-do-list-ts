@@ -1,6 +1,5 @@
 var input = document.querySelector('input');
 var notes = document.querySelector('.notes');
-var enter = document.querySelector('.enter');
 var btnsComplete = document.querySelectorAll('.complete');
 var btnsDelete = document.querySelectorAll('.delete');
 btnsDelete.forEach(function (btn) {
@@ -19,8 +18,8 @@ btnsComplete.forEach(function (btn) {
         notes.appendChild(createCompletedTask(currentText));
     });
 });
-enter.addEventListener('click', function () {
-    if (input.value.length >= 3) {
+input.addEventListener('keypress', function (event) {
+    if (event.key === 'Enter' && input.value.length >= 3) {
         notes.prepend(createTask(input.value.toLowerCase()));
         input.value = '';
     }
@@ -31,8 +30,16 @@ var createCompletedTask = function (content) {
     task.classList.add('container');
     var taskContent = document.createElement('p');
     taskContent.textContent = content;
+    var btnDelete = document.createElement('button');
+    btnDelete.classList.add('delete');
+    btnDelete.addEventListener('click', function (event) {
+        var child = event.currentTarget;
+        var target = child.parentNode.parentNode;
+        target.remove();
+    });
     strike.appendChild(task);
     task.appendChild(taskContent);
+    task.appendChild(btnDelete);
     return strike;
 };
 var createTask = function (content) {

@@ -1,9 +1,8 @@
 const input = document.querySelector('input')!;
 const notes = document.querySelector('.notes')!;
-const enter = document.querySelector('.enter')!;
 
 let btnsComplete = document.querySelectorAll('.complete');
-        let btnsDelete = document.querySelectorAll('.delete');
+let btnsDelete = document.querySelectorAll('.delete');
         btnsDelete.forEach(btn => {
             btn.addEventListener('click', (event) => {
                 const child = event.currentTarget as Element;
@@ -23,8 +22,8 @@ let btnsComplete = document.querySelectorAll('.complete');
             })
         })
 
-enter.addEventListener('click', () => {
-    if (input.value.length >= 3) {
+input.addEventListener('keypress', (event) => {
+    if (event.key === 'Enter' && input.value.length >= 3) {
         notes.prepend(createTask(input.value.toLowerCase()));
         input.value = ''!;
     }
@@ -39,9 +38,18 @@ const createCompletedTask = (content: string) => {
 
     let taskContent = document.createElement('p');
     taskContent.textContent = content;
+    
+    let btnDelete = document.createElement('button');
+    btnDelete.classList.add('delete');
+    btnDelete.addEventListener('click', (event) => {
+        const child = event.currentTarget as Element;
+        const target = child.parentNode.parentNode as Element;
+        target.remove();
+    })
 
     strike.appendChild(task);
     task.appendChild(taskContent);
+    task.appendChild(btnDelete);
 
     return strike;
 }
