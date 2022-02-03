@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+}
+:root {
+    --dark: #0d1321;
+    --red: #ff4d6d;
+    --green: #52b788;
+    --light: #f7ede2;
+    --yellow: #ffd166;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--dark);
+    color: var(--light);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 20px;
+}
+main {
+    margin-top: 15px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+}
+button {
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    width: 20px;
+    height: 20px;
+    border: 3px solid transparent;
+    border-radius: 50%;
+    background-color: transparent;
+    cursor: pointer;
+}
+.complete {
+    border-color: var(--green);
+}
+.add {
+    border-color: var(--yellow);
+}
+.delete {
+    border-color: var(--red);
+}
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    width: 350px;
+}
+.container p {
+    margin-bottom: 2px;
+}
+input {
+    font-size: 20px;
+    padding-bottom: 4px;
+    background-color: transparent;
+    color: var(--light);
+    border: none;
+    border-bottom: 1px solid var(--light);
+    font-family: 'IBM Plex Mono', monospace;
+
+}
+input:focus {
+    outline: none;
+}
+.container .complete, .container .delete {
+    opacity: 0;
+    transition: ease-in-out;
+    transition-duration: 0.3s;
+}
+.container:hover .complete, .container:hover .delete {
+    opacity: 1;
+}
