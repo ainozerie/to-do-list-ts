@@ -21,12 +21,14 @@ body {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 20px;
 }
-main {
+main, .notes {
     margin-top: 15px;
     display: flex;
     align-items: flex-start;
     justify-content: center;
     flex-direction: column;
+}
+.notes {
     gap: 15px;
 }
 button {
@@ -35,7 +37,7 @@ button {
     justify-self: center;
     width: 20px;
     height: 20px;
-    border: 3px solid transparent;
+    border: 2px solid transparent;
     border-radius: 50%;
     background-color: transparent;
     cursor: pointer;
@@ -43,18 +45,25 @@ button {
 .complete {
     border-color: var(--green);
 }
-.add {
-    border-color: var(--yellow);
+.complete:hover {
+    background-color: var(--green);
 }
 .delete {
     border-color: var(--red);
+}
+.delete:hover {
+    background-color: var(--red);
+}
+.enter {
+    color: var(--green);
+    cursor: pointer;
 }
 .container {
     display: flex;
     align-items: center;
     justify-content: flex-start;
     gap: 10px;
-    width: 350px;
+    width: 450px;
 }
 .container p {
     margin-bottom: 2px;
