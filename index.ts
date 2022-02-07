@@ -1,5 +1,6 @@
 const input = document.querySelector('input')!;
 const notes = document.querySelector('.notes')!;
+const enterBtn = document.querySelector('.enter')!;
 
 let btnsComplete = document.querySelectorAll('.complete');
 let btnsDelete = document.querySelectorAll('.delete');
@@ -24,6 +25,12 @@ let btnsDelete = document.querySelectorAll('.delete');
 
 input.addEventListener('keypress', (event) => {
     if (event.key === 'Enter' && input.value.length >= 3) {
+        notes.prepend(createTask(input.value.toLowerCase()));
+        input.value = ''!;
+    }
+})
+enterBtn.addEventListener('click', (event) => {
+    if (input.value.length >= 3) {
         notes.prepend(createTask(input.value.toLowerCase()));
         input.value = ''!;
     }
