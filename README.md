@@ -1,4 +1,4 @@
-### To o List
+### To Do List
 That's a college project.
 
 An app to manage your tasks.
